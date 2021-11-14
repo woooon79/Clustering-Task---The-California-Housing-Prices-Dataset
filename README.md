@@ -2,7 +2,7 @@
 
 
 
-## Before run this manual, please make sure the install and import following packages.
+### Before run this manual, please make sure the install and import following packages.
 ```
 !pip install pyclustering
 ```
@@ -46,7 +46,7 @@ print(df.isnull().sum())
 ```
 
 
-## Setting up the combinations.
+### Setting up the combinations.
 You can freely add or delete the elements you want. 
 ```
 encoders = [LabelEncoder(), OneHotEncoder()]
@@ -89,7 +89,7 @@ def preprocessing(df):
 
 ```
 
-## Clustering
+### Clustering
 We defined functions to cluster automatically with computing all combination of parameters that specified scaler, models and hyperparameters. It performs clustering and plotting with various models and hyperparameter values.
 
 > * df : dataset 
@@ -105,11 +105,11 @@ We defined functions to cluster automatically with computing all combination of 
 
 
 
-## Compare the clustering results 
+### Compare the clustering results 
 Compare the results with N quantiles of the medianHouseValue feature values in the original dataset. In this case, we compared with N=4, N=5,and N=8.
 
 
-## Execute
+### Execute
 All of these processes are executed automatically by calling the main function.
 
 ```
