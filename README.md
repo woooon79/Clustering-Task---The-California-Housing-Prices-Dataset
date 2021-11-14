@@ -68,11 +68,40 @@ hyperparams = {
 ```
 
 ## Clean and prepare a dataset 
-call the 'preprocessing' function. It remove needless features.(median_house_value) and fill the missing values
+Call the 'preprocessing' function. It remove needless features.(median_house_value) and fill the missing values
+```
+'''
+<  preprocessing  >
+ Input : df
 
+- Remove needless features.(median_house_value)
+- fill the missing values
+
+ Output : modified dataframe
+'''
+
+
+def preprocessing(df):
+    df.drop(columns=["median_house_value"], inplace=True)
+    df.total_bedrooms.fillna(df.total_bedrooms.median(), inplace=True)
+
+    return df
+
+```
 
 ## Clustering
 We defined functions to cluster automatically with computing all combination of parameters that specified scaler, models and hyperparameters. It performs clustering and plotting with various models and hyperparameter values.
+
+> df : dataset
+> models : list of models
+> ['K_Means',' MeanShift', 'CLARANS', 'DBSCAN', 'GMM'] 
+> hyperparams : list of models’ hyperparameters
+> hyperparams = {
+'DBSCAN_params': { 'eps': [0.01, 0.003] },
+'MeanShift_params': { 'n': [10, 50, 100] },
+'k': range(2, 13)
+}
+
 
 
 
@@ -80,3 +109,31 @@ We defined functions to cluster automatically with computing all combination of 
 Compare the results with N quantiles of the medianHouseValue feature values in the original dataset. In this case, we compared with N=4, N=5,and N=8.
 
 
+## Execute
+All of these processes are executed automatically by calling the main function.
+
+```
+'''
+< main >
+
+INPUT : df(dataframe), scalers(list), models(list), hyperparams(dict), combi(list)
+
+- preprocessing
+- scaling
+- Call 'clustering()' function to cluster and plot
+
+'''
+
+def main(df, scalers, models, hyperparams, combi):
+    new_df = preprocessing(df)
+    for i in combi:
+        X = new_df[i]
+
+        print("Current combination", i)
+
+        for scaler in scalers:
+            print("Current scaler:", scaler)
+            scaled_X = scaler.fit_transform(X)
+            data_df = pd.DataFrame(scaled_X)
+            clustering(data_df, models, hyperparams)
+```
