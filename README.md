@@ -36,7 +36,7 @@ from sklearn import datasets
 from pyclustering.cluster import cluster_visualizer_multidim
 ```
 
-## Loading a Dataset
+### Loading a Dataset
 ```
 df = pd.read_csv('/content/drive/MyDrive/housing.csv', delimiter = ",")
 df_original = df.copy()
@@ -67,7 +67,7 @@ hyperparams = {
 
 ```
 
-## Clean and prepare a dataset 
+### Clean and prepare a dataset 
 Call the 'preprocessing' function. It remove needless features.(median_house_value) and fill the missing values
 ```
 '''
