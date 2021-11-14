@@ -92,11 +92,11 @@ def preprocessing(df):
 ## Clustering
 We defined functions to cluster automatically with computing all combination of parameters that specified scaler, models and hyperparameters. It performs clustering and plotting with various models and hyperparameter values.
 
-> df : dataset
-> models : list of models
-> ['K_Means',' MeanShift', 'CLARANS', 'DBSCAN', 'GMM'] 
-> hyperparams : list of models’ hyperparameters
-> hyperparams = {
+> * df : dataset 
+> * models : list of models
+>   + ['K_Means',' MeanShift', 'CLARANS', 'DBSCAN', 'GMM'] 
+> * hyperparams : list of models’ hyperparameters
+>   + hyperparams = {
 'DBSCAN_params': { 'eps': [0.01, 0.003] },
 'MeanShift_params': { 'n': [10, 50, 100] },
 'k': range(2, 13)
